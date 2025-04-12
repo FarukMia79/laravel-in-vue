@@ -4,7 +4,7 @@ import ListItem from '../components/ListItem.vue';
 
 const routes = [
     {path: '/add-new', name:'addnew', component:AddNew},
-    {path: '/list-item', name:'list', component:ListItem},
+    {path: '/', name:'list', component:ListItem},
 ];
 
 const router = createRouter({
