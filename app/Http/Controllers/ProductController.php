@@ -30,8 +30,8 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'product_name' => 'required|max:25',
-            'product_price' => 'required'
+            'product_name' => 'required|string|max:25',
+            'product_price' => 'required|numeric'
         ]);
 
         $product = new Product;
@@ -47,7 +47,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return response()->json($product);
     }
 
     /**
@@ -64,13 +64,13 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $validated = $request->validate([
-            'product_name' => 'required|max:25',
-            'product_price' => 'required'
+            'product_name' => 'required|string|max:25',
+            'product_price' => 'required|numeric'
         ]);
 
         $product->update($validated);
 
-        return response()->json(['message'=>'product successfully updated'],200);
+        return response()->json(['message'=>'product successfully updated']);
     }
 
     /**
